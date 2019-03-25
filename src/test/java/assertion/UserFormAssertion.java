@@ -1,4 +1,4 @@
-package assertion.orderassertion;
+package assertion;
 
 public class UserFormAssertion {
 }

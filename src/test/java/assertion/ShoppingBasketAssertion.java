@@ -1,4 +1,4 @@
-package assertion.itemassertion;
+package assertion;
 
 public class ShoppingBasketAssertion {
 }
