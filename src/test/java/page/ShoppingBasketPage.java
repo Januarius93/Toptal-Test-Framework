@@ -1,4 +1,4 @@
-package page.itempage;
+package page;
 
 public class ShoppingBasketPage {
 }

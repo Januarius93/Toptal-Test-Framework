@@ -1,4 +1,4 @@
-package test.ordertest;
+package test;
 
 public class UserFormTest {
 }

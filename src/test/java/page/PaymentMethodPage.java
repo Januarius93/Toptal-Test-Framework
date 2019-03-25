@@ -1,4 +1,4 @@
-package page.orderpage;
+package page;
 
 public class PaymentMethodPage {
 }
