@@ -2,23 +2,21 @@ package test;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
 import utils.PropertyFileReader;
-import utils.browser.Browser;
 import utils.browser.BrowserFactory;
 
 import java.io.IOException;
 import java.util.Properties;
 
 public abstract class AbstractTest {
-    String url;
-    String login;
-    String password;
-    Properties properties;
-    WebDriver driver;
+    public String url;
+    public String login;
+    public String password;
+    public Properties properties;
+    public WebDriver driver;
     private PropertyFileReader propertyFileReader;
 
-    void set() throws IOException {
+    protected void set() throws IOException {
         setUpBrowser();
         setUpConfig();
         maximizeBrowser();
