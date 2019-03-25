@@ -23,8 +23,7 @@ public class LoginTest extends AbstractTest {
 
     @Test
     public void emptyFieldLoginTest() {
-        new MainPage(driver)
-                .clickUserButton()
+        mainPage.clickUserButton()
                 .clickLoginOption()
                 .emptyLogin()
                 .assertIfLoginProcessFailed(loginPageAssertion)
@@ -33,10 +32,9 @@ public class LoginTest extends AbstractTest {
 
     @Test(dependsOnMethods = "emptyFieldLoginTest")
     public void loginWithoutPasswordTest() {
-        new MainPage(driver)
-                .clickUserButton()
+        mainPage.clickUserButton()
                 .clickLoginOption()
-                .login(login, WRONG_PASSWORD,true)
+                .login(login, WRONG_PASSWORD, true)
                 .assertIfLoginProcessFailed(loginPageAssertion)
                 .closeLoginPopOut();
 
@@ -47,7 +45,7 @@ public class LoginTest extends AbstractTest {
     public void correctLoginTest() {
         mainPage.clickUserButton()
                 .clickLoginOption()
-                .login(login, password,true)
+                .login(login, password, true)
                 .clickToSeeProfileOption()
                 .assertIfLogInSuccessful(loginPageAssertion);
     }

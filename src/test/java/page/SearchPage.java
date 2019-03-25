@@ -13,13 +13,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class SearchPage extends AbstractPage {
+public class SearchPage extends ShoppingBasketPage {
     private static final Logger log = LogManager.getLogger(LoginPage.class);
     private static final String ADD_TO_SHOPPING_LIST_CLASS = "icon-shopping-cart-add";
     private static final String PRODUCT_BOX_CLASS = "product-box";
 
     @FindBy(tagName = "h1")
     WebElement watchNameHeader;
+
+    @FindBy(className = "cart")
+    WebElement addToShoppingListButton;
 
     public SearchPage(WebDriver webDriver) {
         super(webDriver);
@@ -40,6 +43,12 @@ public class SearchPage extends AbstractPage {
         action.moveToElement(product).build().perform();
         waitInTime(5, TimeUnit.SECONDS);
         product.findElement(By.className(ADD_TO_SHOPPING_LIST_CLASS)).click();
+        return this;
+    }
+
+    public SearchPage addToShoppingList() {
+        waitForExpectedCondition(ExpectedConditions.elementToBeClickable(addToShoppingListButton));
+        addToShoppingListButton.click();
         return this;
     }
 

@@ -16,11 +16,10 @@ import static enums.SearchCriteria.BY_WATCH_BRAND;
 
 public class ShoppingBasketTest extends AbstractTest {
 
-    MainPage mainPage;
-    SearchPage searchPage;
-    ShoppingBasketPage shoppingBasketPage;
-    List<WebElement> productList;
-    ShoppingBasketAssertion shoppingBasketAssertion;
+    private SearchPage searchPage;
+    private ShoppingBasketPage shoppingBasketPage;
+    private List<WebElement> productList;
+    private ShoppingBasketAssertion shoppingBasketAssertion;
 
     @BeforeClass
     public void setUpBeforeClass() {
@@ -29,11 +28,10 @@ public class ShoppingBasketTest extends AbstractTest {
     @BeforeTest
     public void setUpBeforeTest() throws IOException {
         set();
-        mainPage = new MainPage(driver);
         searchPage = new SearchPage(driver);
         shoppingBasketAssertion = new ShoppingBasketAssertion(driver);
         shoppingBasketPage = new ShoppingBasketPage(driver);
-        mainPage.clickUserButton()
+        new MainPage(driver).clickUserButton()
                 .clickLoginOption()
                 .login(login, password)
                 .typeSearchCriteria(BY_WATCH_BRAND)
@@ -43,12 +41,10 @@ public class ShoppingBasketTest extends AbstractTest {
 
     @Test
     public void addProductsToShoppingList() {
-        searchPage.addToShoppingList(productList.get(0));
-        shoppingBasketPage
+        searchPage.addToShoppingList(productList.get(0))
                 .assertIsProductAdded(shoppingBasketAssertion)
-                .continueShopping();
-        searchPage.addToShoppingList(productList.get(1));
-        shoppingBasketPage
+                .continueShopping()
+                .addToShoppingList(productList.get(1))
                 .assertIsProductAdded(shoppingBasketAssertion)
                 .continueShopping();
     }
