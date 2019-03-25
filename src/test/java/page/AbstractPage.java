@@ -1,5 +1,6 @@
 package page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -9,7 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import org.apache.log4j.*;
 
-import static org.openqa.selenium.Keys.ENTER;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 public abstract class AbstractPage {
@@ -47,6 +49,14 @@ public abstract class AbstractPage {
     public AbstractPage hitButton(CharSequence key) {
         action.sendKeys(key).release().build().perform();
         return this;
+    }
+
+    public void waitInTime(int time, TimeUnit unit){
+        webDriver.manage().timeouts().implicitlyWait(time, unit);
+    }
+
+    public List<WebElement> getElementsByClassName(String locator){
+        return webDriver.findElements(By.className(locator));
     }
 
     protected WebDriver getWebDriver() {

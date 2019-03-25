@@ -9,9 +9,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 public class SearchPage extends AbstractPage {
     private static final Logger log = LogManager.getLogger(LoginPage.class);
+    private static final String ADD_TO_SHOPPING_LIST_CLASS = "icon-shopping-cart-add";
     private static final String PRODUCT_BOX_CLASS = "product-box";
+
     @FindBy(tagName = "h1")
     WebElement watchNameHeader;
 
@@ -19,7 +24,7 @@ public class SearchPage extends AbstractPage {
         super(webDriver);
     }
 
-    public String getWatchName(){
+    public String getWatchName() {
         log.info("get watch");
         return watchNameHeader.getText();
     }
@@ -28,6 +33,17 @@ public class SearchPage extends AbstractPage {
         log.info("choosing first product");
         webDriver.findElements(By.className(PRODUCT_BOX_CLASS)).get(0).click();
         return this;
+    }
+
+    public SearchPage addToShoppingList(WebElement product) {
+        action.moveToElement(product).build().perform();
+        waitInTime(2, TimeUnit.SECONDS);
+        product.findElement(By.className(ADD_TO_SHOPPING_LIST_CLASS)).click();
+        return this;
+    }
+
+    public List<WebElement> getProductAfterSearch() {
+        return getElementsByClassName(PRODUCT_BOX_CLASS);
     }
 
     public SearchPage assertIsProperProductVisible(SearchPageAssertion searchPageAssertion, SearchCriteria searchCriteria) {
