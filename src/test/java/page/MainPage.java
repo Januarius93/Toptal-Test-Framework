@@ -1,5 +1,6 @@
 package page;
 
+import assertion.MainPageAssertion;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class MainPage extends LoginPage {
     private static final Logger log = LogManager.getLogger(LoginPage.class);
+    private static final String EXPECTED_URL = "https://www.e-zegarki.pl/";
     @FindBy(className = "icon-user-circle")
     WebElement userButton;
     @FindBy(xpath = "//a[contains(text(), 'Zaloguj')]")
@@ -31,6 +33,11 @@ public class MainPage extends LoginPage {
         waitForExpectedCondition(ExpectedConditions.elementToBeClickable(loginOption));
         loginOption.click();
         clickInElement(userButton);
+        return this;
+    }
+
+    public LoginPage assertIfProperPage(MainPageAssertion mainPageAssertion) {
+        mainPageAssertion.assertIfProperPage(EXPECTED_URL);
         return this;
     }
 
