@@ -22,7 +22,8 @@ public class ShoppingBasketAssertion extends AbstractAssertion {
                 .isTrue();
         return this;
     }
-    public ShoppingBasketAssertion assertIsShoppinBasketVisible(){
+
+    public ShoppingBasketAssertion assertIsShoppinBasketVisible() {
         log.info("assertion started: ");
         assertThat(new ShoppingBasketPage(getWebDriver()).isShoppingBasketVisible())
                 .as("verify is shopping basket visible")

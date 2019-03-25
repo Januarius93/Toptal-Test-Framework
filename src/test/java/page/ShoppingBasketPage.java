@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class ShoppingBasketPage extends AbstractPage {
+public class ShoppingBasketPage extends DeliveryMethodPage {
     private static final Logger log = LogManager.getLogger(LoginPage.class);
     private static final String REMOVE_FROM_SHOPPING_BASKET_XPATH = "//button[contains(@class,'cart-delete')]";
     @FindBy(className = "cart-add-product-container")
@@ -27,6 +27,9 @@ public class ShoppingBasketPage extends AbstractPage {
     @FindBy(xpath = "//h1[contains(text(),'Twój koszyk')]")
     WebElement shoppingBasketHeader;
 
+    @FindBy(linkText = "Przejdź do kasy")
+    WebElement goToCheckOutButton;
+
 
     public ShoppingBasketPage(WebDriver webDriver) {
         super(webDriver);
@@ -37,6 +40,12 @@ public class ShoppingBasketPage extends AbstractPage {
         waitForExpectedCondition(ExpectedConditions.elementToBeClickable(shoppingList));
         clickInElement(shoppingList);
         return this;
+    }
+
+    public SearchPage goToCheckout(){
+        waitForExpectedCondition(ExpectedConditions.elementToBeClickable(goToCheckOutButton));
+        clickInElement(goToCheckOutButton);
+        return new SearchPage(webDriver);
     }
 
     public boolean isProductAdded() {
@@ -51,10 +60,11 @@ public class ShoppingBasketPage extends AbstractPage {
         return shoppingBasketHeader.isDisplayed();
     }
 
-    public void continueShopping() {
+    public SearchPage continueShopping() {
         log.info(": getting back to shopping");
         waitForExpectedCondition(ExpectedConditions.elementToBeClickable(continueShoppingButton));
         continueShoppingButton.click();
+        return new SearchPage(webDriver);
     }
 
     public List<WebElement> getElementsToRemove() {
@@ -69,8 +79,6 @@ public class ShoppingBasketPage extends AbstractPage {
         waitForExpectedCondition(ExpectedConditions.visibilityOf(webDriver.findElement(By.xpath("//button[contains(@class,'btn-loader')]"))));
         waitForExpectedCondition(ExpectedConditions.invisibilityOf(webDriver.findElement(By.xpath("//button[contains(@class,'btn-loader')]"))));
         assertIsProductRemoved(shoppingBasketAssertion, removeButtonList.size() - 1);
-
-
         return this;
     }
 

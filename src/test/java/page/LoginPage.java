@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
-public class LoginPage extends AbstractPage {
+public class LoginPage extends SearchPage {
     private static final Logger log = LogManager.getLogger(LoginPage.class);
     @FindBy(className = "icon-user-circle")
     WebElement userButton;
@@ -98,6 +98,4 @@ public class LoginPage extends AbstractPage {
         loginPageAssertion.assertIfLogInSuccessful();
         return this;
     }
-
-
 }

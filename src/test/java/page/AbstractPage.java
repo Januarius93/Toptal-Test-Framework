@@ -46,6 +46,10 @@ public abstract class AbstractPage {
         input.sendKeys(text);
     }
 
+    void scrollToElement(WebElement element){
+        action.moveToElement(element).build().perform();
+    }
+
     public AbstractPage hitButton(CharSequence key) {
         action.sendKeys(key).release().build().perform();
         return this;
