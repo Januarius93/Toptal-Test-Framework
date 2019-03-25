@@ -24,7 +24,7 @@ public class ShoppingBasketPage extends AbstractPage {
     @FindBy(className = "icon-shopping-cart")
     WebElement shoppingList;
 
-    @FindBy(tagName = "h1")
+    @FindBy(xpath = "//h1[contains(text(),'Twój koszyk')]")
     WebElement shoppingBasketHeader;
 
 

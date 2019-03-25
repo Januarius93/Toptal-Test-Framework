@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -37,7 +38,7 @@ public class SearchPage extends AbstractPage {
 
     public SearchPage addToShoppingList(WebElement product) {
         action.moveToElement(product).build().perform();
-        waitInTime(2, TimeUnit.SECONDS);
+        waitInTime(5, TimeUnit.SECONDS);
         product.findElement(By.className(ADD_TO_SHOPPING_LIST_CLASS)).click();
         return this;
     }
