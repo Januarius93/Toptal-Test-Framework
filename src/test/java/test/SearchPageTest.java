@@ -11,13 +11,11 @@ import static enums.SearchCriteria.*;
 
 public class SearchPageTest extends AbstractTest {
     private MainPage mainPage;
-    private SearchPage searchPage;
     private SearchPageAssertion searchPageAssertion;
 
     @BeforeClass
     public void setUpBeforeClass() {
         searchPageAssertion = new SearchPageAssertion(driver);
-        searchPage = new SearchPage(driver);
     }
 
     @BeforeTest
@@ -33,8 +31,7 @@ public class SearchPageTest extends AbstractTest {
     public void searchByWatchBrandTest() {
         mainPage
                 .typeSearchCriteria(BY_WATCH_BRAND)
-                .hitSearch();
-        searchPage
+                .hitSearch()
                 .clickFirstProduct()
                 .assertIsProperProductVisible(searchPageAssertion, BY_WATCH_BRAND);
     }
@@ -43,8 +40,7 @@ public class SearchPageTest extends AbstractTest {
     public void searchByWatchModelTest() {
         mainPage
                 .typeSearchCriteria(BY_WATCH_MODEL)
-                .hitSearch();
-        searchPage
+                .hitSearch()
                 .clickFirstProduct()
                 .assertIsProperProductVisible(searchPageAssertion, BY_WATCH_MODEL);
 
@@ -54,8 +50,7 @@ public class SearchPageTest extends AbstractTest {
     public void searchByGenderType() {
         mainPage
                 .typeSearchCriteria(BY_GENDER_TYPE)
-                .hitSearch();
-        searchPage
+                .hitSearch()
                 .clickFirstProduct()
                 .assertIsProperProductVisible(searchPageAssertion, BY_GENDER_TYPE);
     }
