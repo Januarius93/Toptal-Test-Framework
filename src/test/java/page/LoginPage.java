@@ -27,7 +27,7 @@ public class LoginPage extends AbstractPage {
     @FindBy(className = "closeImg")
     WebElement closeLogin;
 
-    private static String SEE_PROFILE_XPATH = "//a[contains(text(), 'Zobacz profil')]";
+    private static final String SEE_PROFILE_XPATH = "//a[contains(text(), 'Zobacz profil')]";
 
 
     public LoginPage(WebDriver webDriver) {
@@ -35,15 +35,15 @@ public class LoginPage extends AbstractPage {
     }
 
 
-    public LoginPage login(String userName, String password) {
+    public MainPage login(String userName, String password) {
         log.info("login start: ");
-        waitForExpectedCondition(ExpectedConditions.invisibilityOf(messageErrorPopOut));
+//        waitForExpectedCondition(ExpectedConditions.invisibilityOf(messageErrorPopOut));
         waitForExpectedCondition(ExpectedConditions.visibilityOf(loginButton));
         loginInput.sendKeys(userName);
         waitForExpectedCondition(ExpectedConditions.visibilityOf(passwordInput));
         passwordInput.sendKeys(password);
         loginButton.click();
-        return this;
+        return new MainPage(webDriver);
     }
 
     public LoginPage emptyLogin() {
