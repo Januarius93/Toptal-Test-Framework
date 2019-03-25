@@ -35,9 +35,19 @@ public class LoginPage extends AbstractPage {
     }
 
 
+    public MainPage login(String userName, String password, boolean isLoginTest) {
+        log.info("login start: ");
+        waitForExpectedCondition(ExpectedConditions.invisibilityOf(messageErrorPopOut));
+        waitForExpectedCondition(ExpectedConditions.visibilityOf(loginButton));
+        loginInput.sendKeys(userName);
+        waitForExpectedCondition(ExpectedConditions.visibilityOf(passwordInput));
+        passwordInput.sendKeys(password);
+        loginButton.click();
+        return new MainPage(webDriver);
+    }
+
     public MainPage login(String userName, String password) {
         log.info("login start: ");
-//        waitForExpectedCondition(ExpectedConditions.invisibilityOf(messageErrorPopOut));
         waitForExpectedCondition(ExpectedConditions.visibilityOf(loginButton));
         loginInput.sendKeys(userName);
         waitForExpectedCondition(ExpectedConditions.visibilityOf(passwordInput));

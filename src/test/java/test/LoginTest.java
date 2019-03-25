@@ -36,7 +36,7 @@ public class LoginTest extends AbstractTest {
         new MainPage(driver)
                 .clickUserButton()
                 .clickLoginOption()
-                .login(login, WRONG_PASSWORD)
+                .login(login, WRONG_PASSWORD,true)
                 .assertIfLoginProcessFailed(loginPageAssertion)
                 .closeLoginPopOut();
 
@@ -47,7 +47,7 @@ public class LoginTest extends AbstractTest {
     public void correctLoginTest() {
         mainPage.clickUserButton()
                 .clickLoginOption()
-                .login(login, password)
+                .login(login, password,true)
                 .clickToSeeProfileOption()
                 .assertIfLogInSuccessful(loginPageAssertion);
     }
