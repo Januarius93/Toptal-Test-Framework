@@ -11,15 +11,14 @@ import java.io.IOException;
 import java.util.Properties;
 
 public abstract class AbstractTest {
-    protected String url;
-    protected String login;
-    protected String password;
-    protected String browser;
-    protected Properties properties;
-    protected WebDriver driver;
+    private String url;
+    String login;
+    String password;
+    private Properties properties;
+    WebDriver driver;
     private PropertyFileReader propertyFileReader;
 
-    public void set() throws IOException {
+    void set() throws IOException {
         setUpBrowser();
         setUpConfig();
         maximizeBrowser();
