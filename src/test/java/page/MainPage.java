@@ -43,22 +43,24 @@ public class MainPage extends LoginPage {
         return this;
     }
 
-    public MainPage typeSearchCriteria(SearchCriteria searchCriteria){
+    public MainPage typeSearchCriteria(SearchCriteria searchCriteria) {
         log.info(": typing into search");
         waitForExpectedCondition(ExpectedConditions.visibilityOf(searchInput));
         typeIntoInput(searchInput, searchCriteria.getCriteria());
         return this;
     }
 
-    public MainPage hitSearch(){
+    public MainPage hitSearch() {
         log.info(": search");
         hitButton(key);
         return this;
     }
+
     public void goToMainPage() {
         log.info(": method start");
         clickInElement(mainPageNav);
     }
+
     public LoginPage assertIfProperPage(MainPageAssertion mainPageAssertion) {
         mainPageAssertion.assertIfProperPage(EXPECTED_URL);
         return this;

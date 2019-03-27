@@ -42,11 +42,15 @@ public abstract class AbstractPage {
     }
 
     void typeIntoInput(WebElement input, String text) {
-        log.info(": typing into");
+        log.info(": typing into:");
         input.sendKeys(text);
     }
+    void clearInput(WebElement input){
+        log.info(": cleaning up input");
+        input.clear();
+    }
 
-    void scrollToElement(WebElement element){
+    void scrollToElement(WebElement element) {
         action.moveToElement(element).build().perform();
     }
 
@@ -55,11 +59,20 @@ public abstract class AbstractPage {
         return this;
     }
 
-    public void waitInTime(int time, TimeUnit unit){
+    public void waitInTime(int time, TimeUnit unit) {
         webDriver.manage().timeouts().implicitlyWait(time, unit);
     }
 
-    public List<WebElement> getElementsByClassName(String locator){
+    public void freezeExecution(int seconds) {
+        log.info("Freezing execution for: " + seconds + "[s]");
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<WebElement> getElementsByClassName(String locator) {
         return webDriver.findElements(By.className(locator));
     }
 
