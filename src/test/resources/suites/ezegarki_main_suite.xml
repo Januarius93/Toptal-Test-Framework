@@ -1,14 +1,29 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Main Ezegarki.pl suite" verbose="1" >
-    <test name="MainPageTest" >
+<suite name="Main Ezegarki.pl suite" verbose="1">
+    <test name="MainPageTest">
         <classes>
-            <class name="test.MainPageTest" />
+            <class name="test.MainPageTest"/>
         </classes>
     </test>
-    <test name="LoginTest" >
+    <test name="LoginTest">
         <classes>
-            <class name="test.LoginTest" />
+            <class name="test.LoginTest"/>
+        </classes>
+    </test>
+    <test name="SearchTest" >
+        <classes>
+            <class name="test.SearchPageTest" />
+        </classes>
+    </test>
+    <test name="ShoppingBasketTest" >
+        <classes>
+            <class name="test.ShoppingBasketTest" />
+        </classes>
+    </test>
+    <test name="CheckoutTest" >
+        <classes>
+            <class name="test.CheckoutTest" />
         </classes>
     </test>
 
