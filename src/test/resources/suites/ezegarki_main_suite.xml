@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Main Ezegarki.pl suite" verbose="1" >
+    <test name="MainPageTest" >
+        <classes>
+            <class name="test.MainPageTest" />
+        </classes>
+    </test>
+    <test name="LoginTest" >
+        <classes>
+            <class name="test.LoginTest" />
+        </classes>
+    </test>
+
+
+</suite>
