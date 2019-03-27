@@ -1,9 +1,11 @@
 package test;
 
 import assertion.ShoppingBasketAssertion;
+import listener.GeneralListener;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import page.MainPage;
 import page.SearchPage;
@@ -14,6 +16,7 @@ import java.util.List;
 
 import static enums.SearchCriteria.BY_WATCH_BRAND;
 
+@Listeners(GeneralListener.class)
 public class ShoppingBasketTest extends AbstractTest {
 
     private SearchPage searchPage;

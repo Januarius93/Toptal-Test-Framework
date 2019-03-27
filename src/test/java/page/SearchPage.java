@@ -40,6 +40,7 @@ public class SearchPage extends ShoppingBasketPage {
     }
 
     public SearchPage addToShoppingList(WebElement product) {
+        log.info("adding to shopping list: " + product);
         action.moveToElement(product).build().perform();
         waitInTime(5, TimeUnit.SECONDS);
         product.findElement(By.className(ADD_TO_SHOPPING_LIST_CLASS)).click();
@@ -47,12 +48,14 @@ public class SearchPage extends ShoppingBasketPage {
     }
 
     public SearchPage addToShoppingList() {
+        log.info("adding to shopping list: ");
         waitForExpectedCondition(ExpectedConditions.elementToBeClickable(addToShoppingListButton));
-        addToShoppingListButton.click();
+        clickInElement(addToShoppingListButton);
         return this;
     }
 
     public List<WebElement> getProductAfterSearch() {
+        log.info("getting products: ");
         return getElementsByClassName(PRODUCT_BOX_CLASS);
     }
 

@@ -19,12 +19,12 @@ public class CheckOutPage extends AbstractPage {
     }
 
     public String getOrderButtonName() {
-        log.info("getting order button name");
+        log.info("getting order button name: ");
         return orderButton.getText();
     }
 
     public boolean isOrderButtonEnabled() {
-        log.info("checking is enabled");
+        log.info("checking is enabled: ");
         return orderButton.isEnabled();
     }
 

@@ -27,7 +27,7 @@ public class UserFormPage extends CheckOutPage {
     public UserFormPage typeUserFormData() {
         waitForExpectedCondition(ExpectedConditions.visibilityOf(name));
         log.info(": typing into user form...");
-        List<WebElement> inputsList = webDriver.findElements(By.xpath("//input"))
+        List<WebElement> inputsList = webDriver.findElements(By.tagName("input"))
                 .stream()
                 .filter(e -> e.getAttribute("id").startsWith("o_"))
                 .limit(9)
@@ -43,7 +43,7 @@ public class UserFormPage extends CheckOutPage {
     }
 
     public UserFormPage goToSummary() {
-        log.info("");
+        log.info("going to summary: ");
         scrollToElement(goToSummaryButton);
         waitForExpectedCondition(ExpectedConditions.elementToBeClickable(goToSummaryButton));
         clickInElement(goToSummaryButton);

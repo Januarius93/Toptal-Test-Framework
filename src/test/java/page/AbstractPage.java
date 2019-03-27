@@ -27,34 +27,37 @@ public abstract class AbstractPage {
     }
 
     void waitForExpectedCondition(ExpectedCondition<?> expectedCondition) {
-        log.info("wait until: " + expectedCondition);
+        log.info("wait until : " + expectedCondition);
         new WebDriverWait(webDriver, WAIT_TIMEOUT).until(expectedCondition);
     }
 
     public String getUrl() {
-        log.info(": obtaining URL");
+        log.info("obtaining URL :");
         return webDriver.getCurrentUrl();
     }
 
     void clickInElement(WebElement element) {
-        log.info(": clicking");
+        log.info("clicking: " + element);
         element.click();
     }
 
     void typeIntoInput(WebElement input, String text) {
-        log.info(": typing into:");
+        log.info(String.format("typing %s into: %s", text, input));
         input.sendKeys(text);
     }
-    void clearInput(WebElement input){
-        log.info(": cleaning up input");
+
+    void clearInput(WebElement input) {
+        log.info("cleaning up input for: " + input);
         input.clear();
     }
 
     void scrollToElement(WebElement element) {
+        log.info("scrolling into: " + element);
         action.moveToElement(element).build().perform();
     }
 
     public AbstractPage hitButton(CharSequence key) {
+        log.info("enter hit: ");
         action.sendKeys(key).release().build().perform();
         return this;
     }
@@ -64,7 +67,7 @@ public abstract class AbstractPage {
     }
 
     public void freezeExecution(int seconds) {
-        log.info("Freezing execution for: " + seconds + "[s]");
+        log.warn("Freezing execution for: " + seconds + " [s]");
         try {
             Thread.sleep(seconds * 1000);
         } catch (InterruptedException e) {

@@ -1,12 +1,14 @@
 package page;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class PaymentMethodPage extends UserFormPage {
-
+    private static final Logger log = LogManager.getLogger(LoginPage.class);
     @FindBy(xpath = "//li[contains(@data-option-type,'payment')]")
     WebElement bankTransferOption;
 
@@ -22,6 +24,7 @@ public class PaymentMethodPage extends UserFormPage {
     }
 
     public PaymentMethodPage chooseBankTransfer() {
+        log.info("choosing bank transfer: ");
         freezeExecution(3);
         clickInElement(bankTransferOption);
         waitForExpectedCondition(ExpectedConditions.attributeContains(bankTransferOption, "class", "active"));
@@ -29,6 +32,7 @@ public class PaymentMethodPage extends UserFormPage {
     }
 
     public PaymentMethodPage continueOrder() {
+        log.info("shopping is continued");
         scrollToElement(approvePaymentMethod);
         waitForExpectedCondition(ExpectedConditions.visibilityOf(approvePaymentMethod));
         waitForExpectedCondition(ExpectedConditions.elementToBeClickable(approvePaymentMethod));
@@ -37,6 +41,7 @@ public class PaymentMethodPage extends UserFormPage {
     }
 
     public PaymentMethodPage goToUserForm() {
+        log.info("moving to user form: ");
         waitForExpectedCondition(ExpectedConditions.elementToBeClickable(userFormButton));
         clickInElement(userFormButton);
         return this;
