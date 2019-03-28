@@ -11,18 +11,15 @@ import java.io.IOException;
 
 @Listeners(GeneralListener.class)
 public class MainPageTest extends AbstractTest {
-    MainPage mainPage;
-    MainPageAssertion mainPageAssertion;
 
     @BeforeClass
     public void setUpBeforeClass() throws IOException {
         set();
-        mainPage = new MainPage(driver);
-        mainPageAssertion = new MainPageAssertion(driver);
     }
 
     @Test
     public void testIsEzegarkiPage() {
-        mainPage.assertIfProperPage(mainPageAssertion);
+        new MainPage(driver)
+                .assertIfProperPage(new MainPageAssertion(driver));
     }
 }

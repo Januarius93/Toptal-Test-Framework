@@ -1,6 +1,6 @@
-package page;
+package page.item;
 
-import assertion.SearchPageAssertion;
+import assertion.item.SearchPageAssertion;
 import enums.SearchCriteria;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -9,9 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import page.LoginPage;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class SearchPage extends ShoppingBasketPage {
     private static final Logger log = LogManager.getLogger(LoginPage.class);
@@ -19,9 +19,11 @@ public class SearchPage extends ShoppingBasketPage {
     private static final String PRODUCT_BOX_CLASS = "product-box";
 
     @FindBy(tagName = "h1")
+    private
     WebElement watchNameHeader;
 
     @FindBy(className = "cart")
+    private
     WebElement addToShoppingListButton;
 
     public SearchPage(WebDriver webDriver) {

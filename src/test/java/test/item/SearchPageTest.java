@@ -1,9 +1,10 @@
-package test;
+package test.item;
 
-import assertion.SearchPageAssertion;
+import assertion.item.SearchPageAssertion;
 import listener.GeneralListener;
 import org.testng.annotations.*;
 import page.MainPage;
+import test.AbstractTest;
 
 import java.io.IOException;
 
@@ -22,8 +23,8 @@ public class SearchPageTest extends AbstractTest {
     @BeforeTest
     public void setUpBeforeTest() throws IOException {
         set();
-        mainPage = new MainPage(driver);
-        mainPage.clickUserButton()
+        mainPage = new MainPage(driver)
+                .clickUserButton()
                 .clickLoginOption()
                 .login(login, password);
     }
@@ -44,7 +45,6 @@ public class SearchPageTest extends AbstractTest {
                 .hitSearch()
                 .clickFirstProduct()
                 .assertIsProperProductVisible(searchPageAssertion, BY_WATCH_MODEL);
-
     }
 
     @Test

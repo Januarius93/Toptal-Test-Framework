@@ -15,12 +15,16 @@ public class MainPage extends LoginPage {
     private static final Logger log = LogManager.getLogger(LoginPage.class);
     private static final String EXPECTED_URL = "https://www.e-zegarki.pl/";
     @FindBy(className = "icon-user-circle")
+    private
     WebElement userButton;
     @FindBy(xpath = "//a[contains(text(), 'Zaloguj')]")
+    private
     WebElement loginOption;
     @FindBy(id = "autocomplete")
+    private
     WebElement searchInput;
     @FindBy(className = "navbar-brand")
+    private
     WebElement mainPageNav;
 
 
