@@ -10,7 +10,7 @@ import page.MainPage;
 import java.io.IOException;
 
 @Listeners(GeneralListener.class)
-public class LoginTest extends AbstractTest {
+public class LoginPageTest extends AbstractTest {
 
     private static final String WRONG_PASSWORD = "paswd3d";
     private MainPage mainPage;

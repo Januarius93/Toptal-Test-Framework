@@ -1,7 +1,9 @@
 package test;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import utils.PropertyFileReader;
 import utils.browser.BrowserFactory;
 
@@ -41,6 +43,11 @@ public abstract class AbstractTest {
 
     private void gotToUrl() {
         driver.get(url);
+    }
+
+    @AfterClass
+    public void tearDownAfterTest() {
+        driver.close();
     }
 
     @AfterSuite

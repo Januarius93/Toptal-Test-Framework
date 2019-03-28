@@ -10,12 +10,12 @@ public class GeneralListener implements ITestListener, ISuiteListener {
 
     @Override
     public void onFinish(ITestContext Result) {
-        log.info("TEST FINISHED: ");
+        Reporter.log("TEST FINISHED: " + Result.getName());
     }
 
     @Override
     public void onStart(ITestContext Result) {
-        log.info("TEST STARTED: " );
+        Reporter.log("TEST STARTED: " + Result.getName());
     }
 
     @Override
@@ -26,35 +26,34 @@ public class GeneralListener implements ITestListener, ISuiteListener {
     // When Test case get failed, this method is called.
     @Override
     public void onTestFailure(ITestResult Result) {
-        log.error("TEST CASE FAILED: " + Result.getName());
+        Reporter.log("TEST CASE FAILED: " + Result.getName());
     }
 
     // When Test case get Skipped, this method is called.
     @Override
     public void onTestSkipped(ITestResult Result) {
-        log.warn("TEST CASE SKIPPED: " + Result.getName());
+        Reporter.log("TEST CASE SKIPPED: " + Result.getName());
     }
 
     // When Test case get Started, this method is called.
     @Override
     public void onTestStart(ITestResult Result) {
-        System.out.println(Result.getName() + " test case started");
-        log.info("TEST CASE STARTED: " + Result.getName());
+        Reporter.log("TEST CASE STARTED: " + Result.getName());
     }
 
     // When Test case get passed, this method is called.
     @Override
     public void onTestSuccess(ITestResult Result) {
-        log.info("TEST CASE PASSED: " + Result.getName());
+        Reporter.log("TEST CASE PASSED: " + Result.getName());
     }
 
     @Override
     public void onStart(ISuite iSuite) {
-        log.info("TEST SUITE STARTED: " + iSuite.getName());
+        Reporter.log("TEST SUITE STARTED: " + iSuite.getName());
     }
 
     @Override
     public void onFinish(ISuite iSuite) {
-        log.info("TEST SUITE FINISHED: " + iSuite.getName() + " " + iSuite.getResults());
+        Reporter.log("TEST SUITE FINISHED: " + iSuite.getName() + " " + iSuite.getResults());
     }
 }

@@ -1,14 +1,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Main Ezegarki.pl suite" verbose="1">
-    <test name="MainPageTest">
+    <test name="MainTest">
         <classes>
             <class name="test.MainPageTest"/>
         </classes>
     </test>
     <test name="LoginTest">
         <classes>
-            <class name="test.LoginTest"/>
+            <class name="test.LoginPageTest"/>
         </classes>
     </test>
     <test name="SearchTest" >
@@ -18,12 +18,12 @@
     </test>
     <test name="ShoppingBasketTest" >
         <classes>
-            <class name="test.ShoppingBasketTest" />
+            <class name="test.ShoppingBasketPageTest" />
         </classes>
     </test>
     <test name="CheckoutTest" >
         <classes>
-            <class name="test.CheckoutTest" />
+            <class name="test.CheckoutPageTest" />
         </classes>
     </test>
 

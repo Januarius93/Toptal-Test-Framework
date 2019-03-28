@@ -30,8 +30,8 @@ public class ShoppingBasketPage extends DeliveryMethodPage {
     @FindBy(linkText = "Przejdź do kasy")
     WebElement goToCheckOutButton;
 
-    @FindBy(xpath = "//button[contains(@class,'btn-loader')]")
-    WebElement buttonLoader;
+    @FindBy(className = "cart-delete")
+    WebElement removeButton;
 
 
     public ShoppingBasketPage(WebDriver webDriver) {
@@ -82,8 +82,7 @@ public class ShoppingBasketPage extends DeliveryMethodPage {
         waitForExpectedCondition(ExpectedConditions.visibilityOf(shoppingBasketHeader));
         List<WebElement> removeButtonList = getElementsToRemove();
         removeButtonList.get(0).click();
-        waitForExpectedCondition(ExpectedConditions.visibilityOf(buttonLoader));
-        waitForExpectedCondition(ExpectedConditions.invisibilityOf(buttonLoader));
+        waitForExpectedCondition(ExpectedConditions.attributeToBe(removeButton,"class", "btn btn-danger btn-sm cart-delete"));
         assertIsProductRemoved(shoppingBasketAssertion, removeButtonList.size() - 1);
         return this;
     }

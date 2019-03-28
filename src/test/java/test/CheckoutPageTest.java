@@ -16,7 +16,7 @@ import java.util.List;
 import static enums.SearchCriteria.BY_WATCH_BRAND;
 
 @Listeners(GeneralListener.class)
-public class CheckoutTest extends AbstractTest {
+public class CheckoutPageTest extends AbstractTest {
 
     private SearchPage searchPage;
     private List<WebElement> productList;
