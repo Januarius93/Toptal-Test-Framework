@@ -1,14 +1,15 @@
 package test;
 
 import assertion.SearchPageAssertion;
+import listener.GeneralListener;
 import org.testng.annotations.*;
 import page.MainPage;
-import page.SearchPage;
 
 import java.io.IOException;
 
 import static enums.SearchCriteria.*;
 
+@Listeners(GeneralListener.class)
 public class SearchPageTest extends AbstractTest {
     private MainPage mainPage;
     private SearchPageAssertion searchPageAssertion;

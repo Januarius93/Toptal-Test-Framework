@@ -29,14 +29,14 @@ public class MainPage extends LoginPage {
     }
 
     public MainPage clickUserButton() {
-        log.info(": user button click action");
+        log.info("user button click: ");
         waitForExpectedCondition(ExpectedConditions.elementToBeClickable(userButton));
         clickInElement(userButton);
         return this;
     }
 
     public MainPage clickLoginOption() {
-        log.info(": login option");
+        log.info("login option: ");
         waitForExpectedCondition(ExpectedConditions.elementToBeClickable(loginOption));
         loginOption.click();
         clickInElement(userButton);
@@ -44,7 +44,7 @@ public class MainPage extends LoginPage {
     }
 
     public MainPage typeSearchCriteria(SearchCriteria searchCriteria) {
-        log.info(": typing into search");
+        log.info("typing into search: ");
         waitForExpectedCondition(ExpectedConditions.visibilityOf(searchInput));
         typeIntoInput(searchInput, searchCriteria.getCriteria());
         return this;

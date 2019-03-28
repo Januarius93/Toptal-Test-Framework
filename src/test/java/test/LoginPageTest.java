@@ -1,13 +1,16 @@
 package test;
 
 import assertion.LoginPageAssertion;
+import listener.GeneralListener;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import page.MainPage;
 
 import java.io.IOException;
 
-public class LoginTest extends AbstractTest {
+@Listeners(GeneralListener.class)
+public class LoginPageTest extends AbstractTest {
 
     private static final String WRONG_PASSWORD = "paswd3d";
     private MainPage mainPage;

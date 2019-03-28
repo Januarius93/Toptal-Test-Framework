@@ -17,7 +17,7 @@ public class CheckOutPageAssertion extends AbstractAssertion {
 
 
     public CheckOutPageAssertion assertThatWatchCanBeBought(String expectedButtonName) {
-        log.info("assertion started");
+        log.info("assertion started: ");
         assertThat(new CheckOutPage(getWebDriver()).getOrderButtonName())
                 .as("verify if button has correct name").
                 isEqualTo(expectedButtonName);
@@ -25,7 +25,7 @@ public class CheckOutPageAssertion extends AbstractAssertion {
     }
 
     public CheckOutPageAssertion assertThatWatchCanBeBought() {
-        log.info("assertion started");
+        log.info("assertion started: ");
         assertThat(new CheckOutPage(getWebDriver()).isOrderButtonEnabled())
                 .as("verify is button enabled")
                 .isTrue();

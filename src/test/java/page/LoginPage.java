@@ -57,14 +57,14 @@ public class LoginPage extends SearchPage {
     }
 
     public LoginPage emptyLogin() {
-        log.info("login start: ");
+        log.info("empty login start: ");
         waitForExpectedCondition(ExpectedConditions.elementToBeClickable(loginButton));
         loginButton.click();
         return this;
     }
 
     public LoginPage clickToSeeProfileOption() {
-        log.info("user button click");
+        log.info("user button click: ");
         waitForExpectedCondition(ExpectedConditions.presenceOfElementLocated(By.xpath(SEE_PROFILE_XPATH)));
         waitForExpectedCondition(ExpectedConditions.elementToBeClickable(userButton));
         clickInElement(userButton);
@@ -85,7 +85,7 @@ public class LoginPage extends SearchPage {
     }
 
     public boolean getSeeProfileOption() {
-        log.info("see profile");
+        log.info("see profile: ");
         return seeProfileOption.isDisplayed();
     }
 
