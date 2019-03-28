@@ -1,10 +1,11 @@
-package assertion;
+package assertion.item;
 
+import assertion.AbstractAssertion;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import page.LoginPage;
-import page.ShoppingBasketPage;
+import page.item.ShoppingBasketPage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -13,17 +13,17 @@
     </test>
     <test name="SearchTest" >
         <classes>
-            <class name="test.SearchPageTest" />
+            <class name="test.item.SearchPageTest" />
         </classes>
     </test>
     <test name="ShoppingBasketTest" >
         <classes>
-            <class name="test.ShoppingBasketPageTest" />
+            <class name="test.item.ShoppingBasketPageTest" />
         </classes>
     </test>
     <test name="CheckoutTest" >
         <classes>
-            <class name="test.CheckoutPageTest" />
+            <class name="test.order.CheckoutPageTest" />
         </classes>
     </test>
 

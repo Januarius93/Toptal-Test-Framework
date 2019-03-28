@@ -1,6 +1,6 @@
-package test;
+package test.item;
 
-import assertion.ShoppingBasketAssertion;
+import assertion.item.ShoppingBasketAssertion;
 import listener.GeneralListener;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
@@ -8,8 +8,9 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import page.MainPage;
-import page.SearchPage;
-import page.ShoppingBasketPage;
+import page.item.SearchPage;
+import page.item.ShoppingBasketPage;
+import test.AbstractTest;
 
 import java.io.IOException;
 import java.util.List;
@@ -34,7 +35,8 @@ public class ShoppingBasketPageTest extends AbstractTest {
         searchPage = new SearchPage(driver);
         shoppingBasketAssertion = new ShoppingBasketAssertion(driver);
         shoppingBasketPage = new ShoppingBasketPage(driver);
-        new MainPage(driver).clickUserButton()
+        new MainPage(driver)
+                .clickUserButton()
                 .clickLoginOption()
                 .login(login, password)
                 .typeSearchCriteria(BY_WATCH_BRAND)

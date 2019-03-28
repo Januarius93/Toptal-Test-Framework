@@ -1,6 +1,6 @@
-package page;
+package page.item;
 
-import assertion.ShoppingBasketAssertion;
+import assertion.item.ShoppingBasketAssertion;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import page.LoginPage;
+import page.order.DeliveryMethodPage;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -16,21 +18,27 @@ public class ShoppingBasketPage extends DeliveryMethodPage {
     private static final Logger log = LogManager.getLogger(LoginPage.class);
     private static final String REMOVE_FROM_SHOPPING_BASKET_XPATH = "//button[contains(@class,'cart-delete')]";
     @FindBy(className = "cart-add-product-container")
+    private
     WebElement productAdded;
 
     @FindBy(className = "close-modal")
+    private
     WebElement continueShoppingButton;
 
     @FindBy(className = "icon-shopping-cart")
+    private
     WebElement shoppingList;
 
     @FindBy(xpath = "//h1[contains(text(),'Twój koszyk')]")
+    private
     WebElement shoppingBasketHeader;
 
     @FindBy(linkText = "Przejdź do kasy")
+    private
     WebElement goToCheckOutButton;
 
     @FindBy(className = "cart-delete")
+    private
     WebElement removeButton;
 
 
@@ -82,7 +90,7 @@ public class ShoppingBasketPage extends DeliveryMethodPage {
         waitForExpectedCondition(ExpectedConditions.visibilityOf(shoppingBasketHeader));
         List<WebElement> removeButtonList = getElementsToRemove();
         removeButtonList.get(0).click();
-        waitForExpectedCondition(ExpectedConditions.attributeToBe(removeButton,"class", "btn btn-danger btn-sm cart-delete"));
+        waitForExpectedCondition(ExpectedConditions.attributeToBe(removeButton, "class", "btn btn-danger btn-sm cart-delete"));
         assertIsProductRemoved(shoppingBasketAssertion, removeButtonList.size() - 1);
         return this;
     }

@@ -40,7 +40,6 @@ public class LoginPageTest extends AbstractTest {
                 .login(login, WRONG_PASSWORD, true)
                 .assertIfLoginProcessFailed(loginPageAssertion)
                 .closeLoginPopOut();
-
     }
 
 

@@ -16,8 +16,8 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class AbstractPage {
     private static final Logger log = LogManager.getLogger(AbstractPage.class);
-    WebDriver webDriver;
-    Actions action;
+    protected WebDriver webDriver;
+    protected Actions action;
     private static int WAIT_TIMEOUT = 30;
 
     public AbstractPage(WebDriver webDriver) {
@@ -26,7 +26,7 @@ public abstract class AbstractPage {
         PageFactory.initElements(webDriver, this);
     }
 
-    void waitForExpectedCondition(ExpectedCondition<?> expectedCondition) {
+    protected void waitForExpectedCondition(ExpectedCondition<?> expectedCondition) {
         log.info("wait until : " + expectedCondition);
         new WebDriverWait(webDriver, WAIT_TIMEOUT).until(expectedCondition);
     }
@@ -36,22 +36,22 @@ public abstract class AbstractPage {
         return webDriver.getCurrentUrl();
     }
 
-    void clickInElement(WebElement element) {
+    protected void clickInElement(WebElement element) {
         log.info("clicking: " + element);
         element.click();
     }
 
-    void typeIntoInput(WebElement input, String text) {
+    protected void typeIntoInput(WebElement input, String text) {
         log.info(String.format("typing %s into: %s", text, input));
         input.sendKeys(text);
     }
 
-    void clearInput(WebElement input) {
+    protected void clearInput(WebElement input) {
         log.info("cleaning up input for: " + input);
         input.clear();
     }
 
-    void scrollToElement(WebElement element) {
+    protected void scrollToElement(WebElement element) {
         log.info("scrolling into: " + element);
         action.moveToElement(element).build().perform();
     }

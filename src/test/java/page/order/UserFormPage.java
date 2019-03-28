@@ -1,4 +1,4 @@
-package page;
+package page.order;
 
 import enums.UserFormData;
 import org.apache.log4j.LogManager;
@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import page.LoginPage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,9 +19,11 @@ public class UserFormPage extends CheckOutPage {
     private static final Logger log = LogManager.getLogger(LoginPage.class);
 
     @FindBy(xpath = "//h1[contains(text(),'Dane osobowe')]")
+    private
     WebElement name;
 
     @FindBy(className = "main-submit-container")
+    private
     WebElement goToSummaryButton;
 
 

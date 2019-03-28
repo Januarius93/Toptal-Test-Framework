@@ -1,4 +1,4 @@
-package page;
+package page.order;
 
 import assertion.CheckOutPageAssertion;
 import org.apache.log4j.LogManager;
@@ -6,12 +6,15 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import page.AbstractPage;
+import page.LoginPage;
 
 
 public class CheckOutPage extends AbstractPage {
     private static final Logger log = LogManager.getLogger(LoginPage.class);
 
     @FindBy(className = "main-submit-container")
+    private
     WebElement orderButton;
 
     public CheckOutPage(WebDriver webDriver) {

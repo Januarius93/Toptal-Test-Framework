@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import page.item.SearchPage;
 
 
 public class LoginPage extends SearchPage {
@@ -89,12 +90,12 @@ public class LoginPage extends SearchPage {
         return seeProfileOption.isDisplayed();
     }
 
-    public LoginPage assertIfLoginProcessFailed(LoginPageAssertion loginPageAssertion){
+    public LoginPage assertIfLoginProcessFailed(LoginPageAssertion loginPageAssertion) {
         loginPageAssertion.assertIfLoginProcessFailed();
         return this;
     }
 
-    public LoginPage assertIfLogInSuccessful(LoginPageAssertion loginPageAssertion){
+    public LoginPage assertIfLogInSuccessful(LoginPageAssertion loginPageAssertion) {
         loginPageAssertion.assertIfLogInSuccessful();
         return this;
     }

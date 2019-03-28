@@ -11,11 +11,11 @@ import java.io.IOException;
 import java.util.Properties;
 
 public abstract class AbstractTest {
-    public String url;
-    public String login;
-    public String password;
-    public Properties properties;
-    public WebDriver driver;
+    private String url;
+    protected String login;
+    protected String password;
+    private Properties properties;
+    protected WebDriver driver;
     private PropertyFileReader propertyFileReader;
 
     protected void set() throws IOException {

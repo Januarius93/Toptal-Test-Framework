@@ -3,7 +3,7 @@ package assertion;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import page.CheckOutPage;
+import page.order.CheckOutPage;
 import page.LoginPage;
 
 import static org.assertj.core.api.Assertions.assertThat;
