@@ -1,31 +1,31 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
+
 <suite name="Main Ezegarki.pl suite" verbose="1">
+
     <test name="MainTest">
         <classes>
-            <class name="test.MainPageTest"/>
+            <class name="webautomation.test.MainPageTest"/>
         </classes>
     </test>
     <test name="LoginTest">
         <classes>
-            <class name="test.LoginPageTest"/>
+            <class name="webautomation.test.LoginPageTest"/>
         </classes>
     </test>
     <test name="SearchTest" >
         <classes>
-            <class name="test.item.SearchPageTest" />
+            <class name="webautomation.test.item.SearchPageTest" />
         </classes>
     </test>
     <test name="ShoppingBasketTest" >
         <classes>
-            <class name="test.item.ShoppingBasketPageTest" />
+            <class name="webautomation.test.item.ShoppingBasketPageTest" />
         </classes>
     </test>
     <test name="CheckoutTest" >
         <classes>
-            <class name="test.order.CheckoutPageTest" />
+            <class name="webautomation.test.order.CheckoutPageTest" />
         </classes>
     </test>
-
-
 </suite>
