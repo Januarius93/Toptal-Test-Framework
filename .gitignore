@@ -12,4 +12,4 @@ target/*
 toptal-taskl-ezegarki.iml
 .idea/*
 /target/
-/test-output/
+/webautomation.test-output/
