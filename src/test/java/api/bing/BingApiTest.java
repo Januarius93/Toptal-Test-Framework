@@ -13,18 +13,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BingApiTest {
 
     private static final String API_KEY = "AsH7f6Vwgt9FlHe3p1kl2kt0shYcss9_-pf73hxzK4rT1W4bEW6YBFYmjSJvvBRm";
-    private String test = "http://dev.virtualearth.net/REST/v1/Locations?CountryRegion=US&adminDistrict=WA&locality=Somewhere&postalCode=98001&addressLine=100 Main St.&key=AsH7f6Vwgt9FlHe3p1kl2kt0shYcss9_-pf73hxzK4rT1W4bEW6YBFYmjSJvvBRm";
-    private String test1 = "http://dev.virtualearth.net/REST/v1/Locations?CountryRegion=US&adminDistrict=WA&locality=Somewhere&postalCode=98001&addressLine=100 Main St.&key=fakeKey";
-    private String test2 = "http://dev.virtualearth.net/REST/v1/Locations/US/WA/98052/Redmond/1%20Microsoft%20Way?o=xml&key=AsH7f6Vwgt9FlHe3p1kl2kt0shYcss9_-pf73hxzK4rT1W4bEW6YBFYmjSJvvBRm";
-    private String test3 = "http://dev.virtualearth.net/REST/v1/";
-    private String test4 = "http://dev.virtualearth.net/notfoundpage";
+    private String placeFoundURL = "http://dev.virtualearth.net/REST/v1/Locations?CountryRegion=US&adminDistrict=WA&locality=Somewhere&postalCode=98001&addressLine=100 Main St.&key=AsH7f6Vwgt9FlHe3p1kl2kt0shYcss9_-pf73hxzK4rT1W4bEW6YBFYmjSJvvBRm";
+    private String unauthorizedURL = "http://dev.virtualearth.net/REST/v1/Locations?CountryRegion=US&adminDistrict=WA&locality=Somewhere&postalCode=98001&addressLine=100 Main St.&key=fakeKey";
+    private String badRequestURL = "http://dev.virtualearth.net/REST/v1/Locations/US/WA/98052/Redmond/1%20Microsoft%20Way?o=xml&key=AsH7f6Vwgt9FlHe3p1kl2kt0shYcss9_-pf73hxzK4rT1W4bEW6YBFYmjSJvvBRm";
+    private String forbiddenURL = "http://dev.virtualearth.net/REST/v1/";
+    private String notFoundURL = "http://dev.virtualearth.net/notfoundpage";
 
     @Test
     public void testIfNameOfThePlaceCorrect() {
         Response res = given()
                 .accept(ContentType.JSON)
                 .when()
-                .get(test)
+                .get(placeFoundURL)
                 .then()
                 .contentType(ContentType.JSON)
                 .extract()
@@ -39,7 +39,7 @@ public class BingApiTest {
         Response res = given()
                 .accept(ContentType.JSON)
                 .when()
-                .get(test1)
+                .get(unauthorizedURL)
                 .then()
                 .contentType(ContentType.JSON)
                 .extract()
@@ -53,7 +53,7 @@ public class BingApiTest {
     public void testIfBadRequest() {
         Response res = given()
                 .when()
-                .get(test2)
+                .get(badRequestURL)
                 .then()
                 .extract()
                 .response();
@@ -66,7 +66,7 @@ public class BingApiTest {
     public void testIfForbidden() {
         Response res = given()
                 .when()
-                .get(test3)
+                .get(forbiddenURL)
                 .then()
                 .extract()
                 .response();
@@ -75,11 +75,11 @@ public class BingApiTest {
         assertThat(response).as("verify if forbidden").contains("403 - Forbidden: Access is denied.");
     }
 
-    @Test(description = "SECURITY")
+    @Test
     public void testIfNotFound(){
         Response res = given()
                 .when()
-                .get(test4)
+                .get(notFoundURL)
                 .then()
                 .extract()
                 .response();
