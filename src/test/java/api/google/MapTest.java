@@ -1,11 +1,10 @@
-package api;
+package api.google;
 
-import com.sun.jndi.ldap.Ber;
 import io.restassured.response.Response;
 import org.testng.annotations.*;
 import webautomation.listener.GeneralListener;
 
-import static api.Locations.*;
+import static api.google.Locations.*;
 import static io.restassured.RestAssured.get;
 import static org.assertj.core.api.Assertions.assertThat;
 
