@@ -1,4 +1,4 @@
-package api;
+package api.google;
 
 public enum Locations {
 

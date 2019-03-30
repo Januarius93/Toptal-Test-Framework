@@ -1,4 +1,4 @@
-package api;
+package api.google;
 
 public class GoogleMapsAPICreator {
     private static final String API_KEY = "&key=AIzaSyDLhVAanBXJx3NF5ithQxhrVNCZ14nimGw";
