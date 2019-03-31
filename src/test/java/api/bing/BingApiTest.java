@@ -2,8 +2,6 @@ package api.bing;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.hamcrest.core.Is;
-import org.openqa.selenium.json.Json;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
