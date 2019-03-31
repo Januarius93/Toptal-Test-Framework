@@ -15,7 +15,8 @@ public class ChromeBrowser implements Browser {
         ChromeDriverManager.getInstance().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox"); //
-        options.addArguments("start-maximized"); // open Browser in maximized mode
+        options.addArguments("--headless"); //
+        options.addArguments("window-size=1024,768"); // open Browser in maximized mode
         options.addArguments("disable-infobars"); // disabling infobars
         options.addArguments("--disable-extensions"); // disabling extensions
         options.addArguments("--disable-gpu"); // applicable to windows os only
