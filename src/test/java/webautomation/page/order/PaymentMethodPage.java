@@ -2,6 +2,8 @@ package webautomation.page.order;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +24,9 @@ public class PaymentMethodPage extends UserFormPage {
     private
     WebElement userFormButton;
 
+    @FindBy(id = "tab-user")
+    WebElement tabPayment;
+
 
     public PaymentMethodPage(WebDriver webDriver) {
         super(webDriver);
@@ -30,8 +35,18 @@ public class PaymentMethodPage extends UserFormPage {
     public PaymentMethodPage chooseBankTransfer() {
         log.info("choosing bank transfer: ");
         freezeExecution(3);
-        clickInElement(bankTransferOption);
-        waitForExpectedCondition(ExpectedConditions.attributeContains(bankTransferOption, "class", "active"));
+        try {
+            clickInElement(bankTransferOption);
+        } catch (ElementNotInteractableException e){
+            freezeExecution(3);
+            clickInElement(bankTransferOption);
+        }
+        try {
+            waitForExpectedCondition(ExpectedConditions.attributeContains(bankTransferOption, "class", "active"));
+        } catch (TimeoutException e){
+            clickInElement(bankTransferOption);
+            waitForExpectedCondition(ExpectedConditions.attributeContains(bankTransferOption, "class", "active"));
+        }
         return this;
     }
 
@@ -46,8 +61,8 @@ public class PaymentMethodPage extends UserFormPage {
 
     public PaymentMethodPage goToUserForm() {
         log.info("moving to user form: ");
-        waitForExpectedCondition(ExpectedConditions.elementToBeClickable(userFormButton));
-        clickInElement(userFormButton);
+        waitForExpectedCondition(ExpectedConditions.elementToBeClickable(tabPayment));
+        clickInElement(tabPayment);
         return this;
     }
 

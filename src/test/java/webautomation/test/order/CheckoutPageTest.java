@@ -23,6 +23,7 @@ public class CheckoutPageTest extends AbstractTest {
     @BeforeTest
     public void setUpBeforeTest() throws IOException {
         set();
+        driver.manage().deleteAllCookies();
         searchPage = new SearchPage(driver);
         checkOutPageAssertion = new CheckOutPageAssertion(driver);
         new MainPage(driver)

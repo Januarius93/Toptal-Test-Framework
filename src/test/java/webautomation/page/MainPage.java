@@ -57,6 +57,7 @@ public class MainPage extends LoginPage {
     public MainPage hitSearch() {
         log.info(": search");
         hitButton(key);
+        freezeExecution(5);
         return this;
     }
 
