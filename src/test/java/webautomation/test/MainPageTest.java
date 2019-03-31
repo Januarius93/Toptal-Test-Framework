@@ -9,7 +9,6 @@ import webautomation.page.MainPage;
 
 import java.io.IOException;
 
-@Listeners(GeneralListener.class)
 public class MainPageTest extends AbstractTest {
 
     @BeforeClass
