@@ -31,7 +31,19 @@
             </plugin>
         </plugins>
     </build>
+<properties>
+    <browser>chrome</browser>
+</properties>
+    <profiles>
+        <profile>
+            <id>runautomationchrome</id>
+            <properties>
+                <browser>chrome</browser>
+                <suiteXmlFile>suites/main.xml</suiteXmlFile>
+            </properties>
 
+        </profile>
+    </profiles>
 
 
     <dependencies>
