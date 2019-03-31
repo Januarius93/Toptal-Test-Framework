@@ -1,5 +1,6 @@
 package webautomation.utils.browser;
 
+import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,7 +12,7 @@ public class ChromeBrowser implements Browser {
 
     @Override
     public WebDriver getDriver() {
-        WebDriverManager.chromedriver().setup();
+        ChromeDriverManager.getInstance().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized"); // open Browser in maximized mode
         options.addArguments("disable-infobars"); // disabling infobars
