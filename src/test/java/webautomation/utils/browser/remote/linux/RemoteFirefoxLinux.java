@@ -14,6 +14,6 @@ public class RemoteFirefoxLinux implements Browser {
     public WebDriver getDriver() throws MalformedURLException {
         DesiredCapabilities dc = DesiredCapabilities.firefox();
         dc.setPlatform(Platform.LINUX);
-        return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),dc);
+        return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
     }
 }

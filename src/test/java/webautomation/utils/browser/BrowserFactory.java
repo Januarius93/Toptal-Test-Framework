@@ -3,8 +3,11 @@ package webautomation.utils.browser;
 import org.openqa.selenium.WebDriver;
 import webautomation.utils.browser.remote.linux.RemoteChromeLinux;
 import webautomation.utils.browser.remote.linux.RemoteFirefoxLinux;
+import webautomation.utils.browser.remote.linux.RemoteOperaLinux;
 import webautomation.utils.browser.remote.windows.RemoteChromeWindows10;
+import webautomation.utils.browser.remote.windows.RemoteEdgeWindows10;
 import webautomation.utils.browser.remote.windows.RemoteFirefoxWindows10;
+import webautomation.utils.browser.remote.windows.RemoteOperaWindows10;
 
 import java.net.MalformedURLException;
 
@@ -27,17 +30,26 @@ public class BrowserFactory {
             case "edge":
                 webDriver = new EdgeBrowser().getDriver();
                 break;
+            case "remoteChromeWindows10":
+                webDriver = new RemoteChromeWindows10().getDriver();
+                break;
             case "remoteChromeLinux":
                 webDriver = new RemoteChromeLinux().getDriver();
+                break;
+            case "remoteFirefoxWindows10":
+                webDriver = new RemoteFirefoxWindows10().getDriver();
                 break;
             case "remoteFirefoxLinux":
                 webDriver = new RemoteFirefoxLinux().getDriver();
                 break;
-            case "remoteChromeWindows10":
-                webDriver = new RemoteChromeWindows10().getDriver();
+            case "remoteOperaWindows10":
+                webDriver = new RemoteOperaWindows10().getDriver();
                 break;
-            case "remoteFirefoxWindows10":
-                webDriver = new RemoteFirefoxWindows10().getDriver();
+            case "remoteOperaLinux":
+                webDriver = new RemoteOperaLinux().getDriver();
+                break;
+            case "remoteEdgeWindows10":
+                webDriver = new RemoteEdgeWindows10().getDriver();
                 break;
             default:
                 webDriver = new ChromeBrowser().getDriver();

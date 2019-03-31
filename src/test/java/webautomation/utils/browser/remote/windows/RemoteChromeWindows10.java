@@ -13,7 +13,7 @@ public class RemoteChromeWindows10 implements Browser {
     @Override
     public WebDriver getDriver() throws MalformedURLException {
         DesiredCapabilities dc = DesiredCapabilities.chrome();
-        dc.setPlatform(Platform.WIN10);
+        dc.setPlatform(Platform.WINDOWS);
         return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),dc);
     }
 }

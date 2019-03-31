@@ -1,7 +1,9 @@
 package api.google;
 
 import io.restassured.response.Response;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 import webautomation.listener.GeneralListener;
 
 import static api.google.Locations.*;
