@@ -13,6 +13,7 @@ import java.io.File;
 public class OperaBrowser implements Browser {
     @Override
     public WebDriver getDriver() {
+        WebDriverManager.operadriver().setup();
         return new OperaDriver();
     }
 }

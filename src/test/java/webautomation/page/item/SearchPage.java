@@ -28,6 +28,8 @@ public class SearchPage extends ShoppingBasketPage {
 
     @FindBy(xpath = "//h1[contains(text(),'Wyniki wyszukiwania')]")
     WebElement searchResultHeader;
+    @FindBy(className = "icon-shopping-cart-add")
+    WebElement addToShoppingListButton2;
 
     public SearchPage(WebDriver webDriver) {
         super(webDriver);
@@ -42,13 +44,14 @@ public class SearchPage extends ShoppingBasketPage {
         log.info("choosing first product");
         waitForExpectedCondition(ExpectedConditions.visibilityOf(searchResultHeader));
         webDriver.findElements(By.className(PRODUCT_BOX_CLASS)).get(0).click();
+        freezeExecution(5);
         return this;
     }
 
     public SearchPage addToShoppingList(WebElement product) {
         log.info("adding to shopping list: " + product);
         action.moveToElement(product).build().perform();
-        freezeExecution(1);
+        freezeExecution(3);
         product.findElement(By.className(ADD_TO_SHOPPING_LIST_CLASS)).click();
         return this;
     }

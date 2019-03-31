@@ -23,6 +23,9 @@ public class DeliveryMethodPage extends PaymentMethodPage {
     private
     WebElement approveDeliveryMethod;
 
+    @FindBy(id="tab-payment")
+    private WebElement tabPayment;
+
 
     protected DeliveryMethodPage(WebDriver webDriver) {
         super(webDriver);
@@ -37,8 +40,8 @@ public class DeliveryMethodPage extends PaymentMethodPage {
     }
 
     public DeliveryMethodPage continueOrder() {
-        waitForExpectedCondition(ExpectedConditions.elementToBeClickable(approveDeliveryMethod));
-        clickInElement(approveDeliveryMethod);
+        waitForExpectedCondition(ExpectedConditions.elementToBeClickable(tabPayment));
+        clickInElement(tabPayment);
         return this;
     }
 

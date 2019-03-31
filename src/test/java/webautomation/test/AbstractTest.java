@@ -4,10 +4,12 @@ import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import webautomation.utils.PropertyFileReader;
 import webautomation.utils.browser.BrowserFactory;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.NoSuchElementException;
 import java.util.Properties;
 
@@ -18,6 +20,8 @@ public abstract class AbstractTest {
     private Properties properties;
     protected WebDriver driver;
     private PropertyFileReader propertyFileReader;
+
+
 
     protected void set() throws IOException {
         setUpBrowser();
@@ -34,7 +38,7 @@ public abstract class AbstractTest {
         this.password = properties.getProperty("password");
     }
 
-    private void setUpBrowser() {
+    private void setUpBrowser() throws MalformedURLException {
         driver = BrowserFactory.getBrowser();
     }
 
