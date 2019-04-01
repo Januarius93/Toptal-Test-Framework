@@ -29,11 +29,11 @@ public class ShoppingBasketPage extends DeliveryMethodPage {
     private
     WebElement shoppingList;
 
-    @FindBy(xpath = "//h1[contains(text(),'Twój koszyk')]")
+    @FindBy(xpath = "//h1[contains(text(),'koszyk')]")
     private
     WebElement shoppingBasketHeader;
 
-    @FindBy(linkText = "Przejdź do kasy")
+    @FindBy(partialLinkText = "do kasy")
     private
     WebElement goToCheckOutButton;
 
