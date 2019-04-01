@@ -1,4 +1,4 @@
-package webautomation.utils.browser;
+package webautomation.utils.browser.local;
 
 import io.github.bonigarcia.wdm.OperaDriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -8,6 +8,7 @@ import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Optional;
+import webautomation.utils.browser.Browser;
 
 import java.io.File;
 
@@ -27,7 +28,7 @@ public class OperaBrowser implements Browser {
         operaOptions.addArguments("--no-sandbox"); // Bypass OS security model
         operaOptions.addArguments("--headless"); // Bypass OS security model
 
-        dc.setCapability(ChromeOptions.CAPABILITY,operaOptions);
+        dc.setCapability(ChromeOptions.CAPABILITY, operaOptions);
         dc.setBrowserName("opera");
 
 

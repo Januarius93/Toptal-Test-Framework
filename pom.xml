@@ -13,6 +13,16 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <browser>${browser}</browser>
+                        <isCloud>${isCloud}</isCloud>
+                        <platform>${platform}</platform>
+                        <browserVersion>${browserVersion}</browserVersion>
+                        <resolution>${resolution}</resolution>
+                        <suiteXmlFile>${suite}</suiteXmlFile>
+                    </systemPropertyVariables>
+                </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.apache.maven.surefire</groupId>
@@ -31,21 +41,86 @@
             </plugin>
         </plugins>
     </build>
-<properties>
-    <browser>chrome</browser>
-</properties>
+    <properties>
+        <browser>chrome</browser>
+        <isCloud>false</isCloud>
+        <platform>Windows 10</platform>
+        <browserVersion>73.0</browserVersion>
+        <resolution>2560x1600</resolution>
+        <suiteXmlFile>suites/main.xm</suiteXmlFile>
+    </properties>
+
     <profiles>
         <profile>
-            <id>runautomationchrome</id>
+            <id>runlocalchrome</id>
             <properties>
                 <browser>chrome</browser>
                 <suiteXmlFile>suites/main.xml</suiteXmlFile>
             </properties>
-
+        </profile>
+        <profile>
+            <id>runlocalfirefox</id>
+            <properties>
+                <browser>firefox</browser>
+                <suiteXmlFile>suites/main.xml</suiteXmlFile>
+            </properties>
+        </profile>
+        <profile>
+            <id>runlocalopera</id>
+            <properties>
+                <browser>opera</browser>
+                <suiteXmlFile>suites/main.xml</suiteXmlFile>
+            </properties>
+        </profile>
+        <profile>
+            <id>runlocaledge</id>
+            <properties>
+                <browser>edge</browser>
+                <suiteXmlFile>suites/main.xml</suiteXmlFile>
+            </properties>
+        </profile>
+        <profile>
+            <id>runremotewindowschrome</id>
+            <properties>
+                <browser>remoteChromeWindows10</browser>
+                <suiteXmlFile>suites/main.xml</suiteXmlFile>
+            </properties>
+        </profile>
+        <profile>
+            <id>runremotewindowsedge</id>
+            <properties>
+                <browser>remoteEdgeWindows10</browser>
+                <suiteXmlFile>suites/main.xml</suiteXmlFile>
+            </properties>
+        </profile>
+        <profile>
+            <id>runremotewindowsfirefox</id>
+            <properties>
+                <browser>remoteFirefoxWindows10</browser>
+                <suiteXmlFile>suites/main.xml</suiteXmlFile>
+            </properties>
+        </profile>
+        <profile>
+            <id>runremotelinuxchrome</id>
+            <properties>
+                <browser>remoteChromeLinux</browser>
+                <suiteXmlFile>suites/main.xml</suiteXmlFile>
+            </properties>
+        </profile>
+        <profile>
+            <id>runremotelinuxfirefox</id>
+            <properties>
+                <browser>remoteChromeLinux</browser>
+                <suiteXmlFile>suites/main.xml</suiteXmlFile>
+            </properties>
+        </profile>
+        <profile>
+            <id>runapi</id>
+            <properties>
+                <suiteXmlFile>suites/api.xml</suiteXmlFile>
+            </properties>
         </profile>
     </profiles>
-
-
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>

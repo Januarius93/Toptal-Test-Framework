@@ -1,10 +1,11 @@
-package webautomation.utils.browser;
+package webautomation.utils.browser.local;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import webautomation.utils.browser.Browser;
 
 public class ChromeBrowser implements Browser {
 

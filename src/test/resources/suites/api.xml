@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name="Api test suite" verbose="1">
+    <test name="BingApiMapTest">
+        <classes>
+            <class name="api.bing.BingApiTest"/>
+        </classes>
+    </test>
+    <test name="GoogleApiMapTest">
+        <classes>
+            <class name="api.google.MapTest"/>
+        </classes>
+    </test>
+</suite>

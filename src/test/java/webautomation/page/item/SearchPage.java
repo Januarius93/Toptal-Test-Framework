@@ -43,13 +43,14 @@ public class SearchPage extends ShoppingBasketPage {
     public SearchPage clickFirstProduct() {
         log.info("choosing first product");
         waitForExpectedCondition(ExpectedConditions.visibilityOf(searchResultHeader));
-        webDriver.findElements(By.className(PRODUCT_BOX_CLASS)).get(0).click();
         freezeExecution(5);
+        webDriver.findElements(By.className(PRODUCT_BOX_CLASS)).get(0).click();
         return this;
     }
 
     public SearchPage addToShoppingList(WebElement product) {
         log.info("adding to shopping list: " + product);
+        freezeExecution(3);
         action.moveToElement(product).build().perform();
         freezeExecution(3);
         product.findElement(By.className(ADD_TO_SHOPPING_LIST_CLASS)).click();

@@ -2,7 +2,6 @@
 
 
 <suite name="Main Ezegarki.pl suite" verbose="1">
-
     <test name="MainTest">
         <classes>
             <class name="webautomation.test.MainPageTest"/>
@@ -13,19 +12,19 @@
             <class name="webautomation.test.LoginPageTest"/>
         </classes>
     </test>
-    <test name="SearchTest" >
+    <test name="SearchTest">
         <classes>
-            <class name="webautomation.test.item.SearchPageTest" />
+            <class name="webautomation.test.item.SearchPageTest"/>
         </classes>
     </test>
-    <test name="ShoppingBasketTest" >
+    <test name="ShoppingBasketTest">
         <classes>
-            <class name="webautomation.test.item.ShoppingBasketPageTest" />
+            <class name="webautomation.test.item.ShoppingBasketPageTest"/>
         </classes>
     </test>
-    <test name="CheckoutTest" >
+    <test name="CheckoutTest">
         <classes>
-            <class name="webautomation.test.order.CheckoutPageTest" />
+            <class name="webautomation.test.order.CheckoutPageTest"/>
         </classes>
     </test>
 </suite>
