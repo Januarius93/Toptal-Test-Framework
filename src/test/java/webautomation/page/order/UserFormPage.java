@@ -41,7 +41,6 @@ public class UserFormPage extends CheckOutPage {
         for (int i = 0; i < inputsList.size(); i++) {
             clearInput(inputsList.get(i));
             typeIntoInput(inputsList.get(i), userFormData.get(i).getData());
-            clickInElement(inputsList.get(i));
         }
         return this;
     }

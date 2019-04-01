@@ -61,7 +61,7 @@ public abstract class AbstractTest {
             driver.quit();
         }
         catch (NoSuchSessionException e){
-            e.printStackTrace();
+
         }
     }
 

@@ -48,7 +48,7 @@ public abstract class AbstractPage {
     }
 
     protected void clearInput(WebElement input) {
-        log.info("cleaning up input for: " + input);
+        log.info("cleaning up input for: " + input.getAttribute("id") +" element");
         input.clear();
     }
 

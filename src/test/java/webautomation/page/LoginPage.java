@@ -54,7 +54,7 @@ public class LoginPage extends SearchPage {
         waitForExpectedCondition(ExpectedConditions.visibilityOf(passwordInput));
         passwordInput.sendKeys(password);
         loginButton.click();
-        waitForExpectedCondition(ExpectedConditions.invisibilityOf(webDriver.findElement(By.xpath("//h1[contains(text(),'Zaloguj się')]"))));
+        waitForExpectedCondition(ExpectedConditions.invisibilityOf(webDriver.findElement(By.xpath("//h1[contains(text(),'Zaloguj')]"))));
         return new MainPage(webDriver);
     }
 
