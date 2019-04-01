@@ -4,13 +4,11 @@ import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
 import webautomation.utils.PropertyFileReader;
-import webautomation.utils.browser.BrowserFactory;
+import webautomation.utils.browser.local.BrowserFactory;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.util.NoSuchElementException;
 import java.util.Properties;
 
 public abstract class AbstractTest {
@@ -22,7 +20,6 @@ public abstract class AbstractTest {
     private PropertyFileReader propertyFileReader;
 
 
-
     protected void set() throws IOException {
         setUpBrowser();
         setUpConfig();
@@ -30,7 +27,7 @@ public abstract class AbstractTest {
         gotToUrl();
     }
 
-    private void setUpConfig() throws IOException {
+    private void setUpConfig() {
         propertyFileReader = new PropertyFileReader().readPropertyFile();
         properties = propertyFileReader.getProperties();
         this.url = properties.getProperty("url");

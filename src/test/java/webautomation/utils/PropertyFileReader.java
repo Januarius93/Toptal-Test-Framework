@@ -8,16 +8,20 @@ public class PropertyFileReader {
 
     private Properties properties;
     private InputStream inputStreamPropertyPath;
-    private static String PROPERTY_PATH = "/confs/ezegarki.properties";
+    private static String PROPERTY_PATH = "/confs/project.properties";
 
-    public Properties getProperties(){
+    public Properties getProperties() {
         return properties;
     }
 
-    public PropertyFileReader readPropertyFile() throws IOException {
+    public PropertyFileReader readPropertyFile() {
         inputStreamPropertyPath = this.getClass().getResourceAsStream(PROPERTY_PATH);
         properties = new Properties();
-        properties.load(this.getClass().getResourceAsStream(PROPERTY_PATH));
+        try {
+            properties.load(this.getClass().getResourceAsStream(PROPERTY_PATH));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return this;
     }
 
