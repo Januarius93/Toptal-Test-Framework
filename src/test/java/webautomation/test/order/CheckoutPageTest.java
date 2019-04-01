@@ -18,7 +18,7 @@ public class CheckoutPageTest extends AbstractTest {
 
     private SearchPage searchPage;
     private CheckOutPageAssertion checkOutPageAssertion;
-    private static final String EXPECTED_BUTTON_NAME = "Zamawiam i płacę";
+    private static final String EXPECTED_BUTTON_NAME = "Zamawiam";
 
     @BeforeTest
     public void setUpBeforeTest() throws IOException {

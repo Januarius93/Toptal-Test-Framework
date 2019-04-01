@@ -20,7 +20,7 @@ public class CheckOutPageAssertion extends AbstractAssertion {
         log.info("webautomation.assertion started: ");
         assertThat(new CheckOutPage(getWebDriver()).getOrderButtonName())
                 .as("verify if button has correct name").
-                isEqualTo(expectedButtonName);
+                contains(expectedButtonName);
         return this;
     }
 
