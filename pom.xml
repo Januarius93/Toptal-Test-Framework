@@ -20,7 +20,7 @@
                         <platform>${platform}</platform>
                         <browserVersion>${browserVersion}</browserVersion>
                         <resolution>${resolution}</resolution>
-                        <suiteXmlFile>${suite}</suiteXmlFile>
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                     </systemPropertyVariables>
                 </configuration>
                 <dependencies>
